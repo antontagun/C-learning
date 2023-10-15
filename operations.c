@@ -48,7 +48,16 @@ void sum(void)
 }
 int main(void)
 {   
-    square_equation();
+    int num;
+    printf("Write the number of equations \n");
+    scanf("%d", &num);
+    do
+    { 
+        square_equation();
+    }
+    while(--num);
+
+        
     //sum();
     return 0;
 }
