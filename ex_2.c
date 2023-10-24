@@ -84,11 +84,18 @@ void filling_el(int array[], const int size, int a, int b)
 int main(void)
 {
     int array_3[] = {1, 2, 3};
+    const unsigned int size_3 = sizeof(array_3) / sizeof(array_3[0]);
     int a, b;
     const int max_len = 100;
     int array_1[max_len];
+    int var_len;
 
     srand(time(NULL));
+
+    printf("Enter length of an array: ");
+    scanf("%d", &var_len);
+
+    int array_2[var_len];
 
     printf("a = ");
     scanf("%d", &a);
@@ -98,17 +105,17 @@ int main(void)
     
     printf("rand max = %d\n", RAND_MAX);
 
-    fill_array_randomly(array_1, sizeof(array_1) / sizeof(array_1[0]));
-    print_array(array_1, sizeof(array_1) / sizeof(array_1[0]));
+    fill_array_randomly(array_1, max_len);
+    print_array(array_1, max_len);
 
-    printf("min_el = %d\n", min_el(array_1, sizeof(array_1) / sizeof(array_1[0])));
-    printf("max_el = %d\n", max_el(array_1, sizeof(array_1) / sizeof(array_1[0])));
+    printf("min_el = %d\n", min_el(array_1, max_len));
+    printf("max_el = %d\n", max_el(array_1, max_len));
     
-    filling_el(array_1, sizeof(array_1) / sizeof(array_1[0]), a, b);
-    print_array(array_1, sizeof(array_1) / sizeof(array_1[0]));
+    filling_el(array_2, var_len, a, b);
+    print_array(array_2, var_len);
 
-    printf("min_el = %d\n", min_el(array_1, sizeof(array_1) / sizeof(array_1[0])));
-    printf("max_el = %d\n", max_el(array_1, sizeof(array_1) / sizeof(array_1[0])));
+    printf("min_el = %d\n", min_el(array_2, var_len));
+    printf("max_el = %d\n", max_el(array_2, var_len));
 
     return 0;
 }
